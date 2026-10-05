@@ -5,15 +5,15 @@ ENV ANDROID_HOME=/opt/android-sdk
 ENV PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
 
 RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y wget curl git python3 python3-pip neofetch \
-        openjdk-17-jdk gradle \
-        net-tools iproute2 iputils-ping dnsutils \
-        vim nano htop tree unzip zip \
-        build-essential gcc g++ make \
-        openssh-client telnet netcat \
-        jq less man-db sudo lsof strace && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+ apt-get upgrade -y && \
+ apt-get install -y wget curl git python3 python3-pip neofetch \
+ openjdk-17-jdk gradle \
+ net-tools iproute2 iputils-ping dnsutils \
+ vim nano htop tree unzip zip \
+ build-essential gcc g++ make \
+ openssh-client telnet netcat-openbsd \
+ jq less man-db sudo lsof strace && \
+ apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p $ANDROID_HOME/cmdline-tools && \
     wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O /tmp/cmdtools.zip && \
